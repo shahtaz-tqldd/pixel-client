@@ -14,21 +14,21 @@ const ProductCard = ({ data }) => {
   return (
     <div className="group">
       <div className="relative">
-        <img src={img} alt="" className="w-full h-52 object-cover" />
-        <div className="absolute top-3 right-3 flex items-center gap-2">
+        <img src={img} alt="" className="w-full h-60 object-cover" />
+        <div className="absolute top-3 right-3 flex items-center gap-2 text-gray-500">
           {liked ? (
             <IoHeartSharp
               onClick={() => setLiked(!liked)}
-              className="cursor-pointer text-xl"
+              className="cursor-pointer  text-red tr text-xl"
             />
           ) : (
             <IoHeartOutline
               onClick={() => setLiked(!liked)}
-              className="cursor-pointer text-xl"
+              className="cursor-pointer  hover:text-black tr text-xl"
             />
           )}
           <button>
-            <MdCompareArrows className="text-xl" />
+            <MdCompareArrows className="text-xl hover:text-black tr " />
           </button>
         </div>
       </div>
@@ -46,7 +46,7 @@ const ProductCard = ({ data }) => {
         <div className="group-hover:-translate-y-28 transition duration-500">
           <div className="h-28 text-sm -ml-2 flex flex-col justify-between">
             <HtmlParsed content={description} />
-            <div className="flex justify-end text-gray-500 line-through">
+            <div className="flex justify-end text-gray-400 font-medium text-lg line-through">
               ${prevPrice}
             </div>
           </div>
@@ -92,7 +92,7 @@ const ProductCard = ({ data }) => {
           <FaRegClock className="text-red" />
           {time}
         </div>
-        <div className="flex items-center gap-2 text-md font-bold">
+        <div className="flex items-center gap-2 text-xl text-black font-bold">
           ${price * quantity}
         </div>
       </div>

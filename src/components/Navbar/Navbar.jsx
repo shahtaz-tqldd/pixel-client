@@ -42,7 +42,7 @@ const Navbar = () => {
     }
   };
   return (
-    <div className="bg-black pt-4">
+    <div className="bg-black pt-4 lg:pb-0 pb-4">
       <div className="flex flex-col gap-4">
         <div className="container flex justify-between items-center">
           <button
