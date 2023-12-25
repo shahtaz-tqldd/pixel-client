@@ -1,16 +1,37 @@
 import React, { useState } from "react";
 import star from "../../../assets/icons/star.svg";
+import { IoHeartOutline, IoHeartSharp } from "react-icons/io5";
+import { MdCompareArrows } from "react-icons/md";
 import { FaRegClock } from "react-icons/fa";
 import HtmlParsed from "../../../utiles/htmlparser";
 
 const ProductCard = ({ data }) => {
   const [selected, setSelected] = useState("1len");
+  const [liked, setLiked] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const { img, name, category, rating, price, prevPrice, time, description } =
     data;
   return (
     <div className="group">
-      <img src={img} alt="" className="w-full h-52 object-cover" />
+      <div className="relative">
+        <img src={img} alt="" className="w-full h-52 object-cover" />
+        <div className="absolute top-3 right-3 flex items-center gap-2">
+          {liked ? (
+            <IoHeartSharp
+              onClick={() => setLiked(!liked)}
+              className="cursor-pointer text-xl"
+            />
+          ) : (
+            <IoHeartOutline
+              onClick={() => setLiked(!liked)}
+              className="cursor-pointer text-xl"
+            />
+          )}
+          <button>
+            <MdCompareArrows className="text-xl" />
+          </button>
+        </div>
+      </div>
       <div className="flex justify-between mt-5">
         <div>
           <h1 className="text-lg font-medium">{name}</h1>
@@ -72,7 +93,7 @@ const ProductCard = ({ data }) => {
           {time}
         </div>
         <div className="flex items-center gap-2 text-md font-bold">
-          ${price*quantity}
+          ${price * quantity}
         </div>
       </div>
     </div>
